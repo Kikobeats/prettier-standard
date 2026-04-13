@@ -1,6 +1,6 @@
 {
   "name": "@kikobeats/prettier-standard",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Prettier and standard brought together!",
   "type": "module",
   "main": "src/index.js",
