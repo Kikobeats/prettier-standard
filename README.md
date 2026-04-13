@@ -20,12 +20,12 @@ requirements).
 ## Installation
 
 ```
-yarn add --dev @ksmithut/prettier-standard
+yarn add --dev @kikobeats/prettier-standard
 ```
 
-> If you're using the [`npm`][npm]: `npm install --save-dev @ksmithut/prettier-standard`.
+> If you're using the [`npm`][npm]: `npm install --save-dev @kikobeats/prettier-standard`.
 
-> You can also install globally with `npm install -g @ksmithut/prettier-standard`
+> You can also install globally with `npm install -g @kikobeats/prettier-standard`
 
 ## Usage
 
