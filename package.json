@@ -43,6 +43,9 @@
     "lint": "node src/cli.js --lint",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
+  "bundledDependencies": [
+    "prettierx"
+  ],
   "files": [
     "src",
     "vendor"
