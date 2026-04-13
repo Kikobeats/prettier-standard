@@ -6,6 +6,26 @@ Formats with [prettier](https://github.com/prettier/prettier) (actually [prettie
 
 You don't have to fix any whitespace errors and waste time configuring eslint presets :relieved:
 
+## Note on prettierx
+
+This package depends on [prettierx](https://github.com/brodybits/prettierx), a less opinionated fork of Prettier that exposes extra formatting options required for Standard style (e.g. `spaceBeforeFunctionParen`).
+
+`prettierx@0.19.0` declares `parse-srcset` via a git commit reference in its `package.json`. Since pnpm enables [`blockExoticSubdeps`](https://pnpm.io/npmrc#blockexoticsubdeps) by default, this causes installation to fail for any consumer:
+
+```
+ERR_PNPM_EXOTIC_SUBDEP  Exotic dependency "parse-srcset" (resolved via git-repository)
+is not allowed in subdependencies when blockExoticSubdeps is enabled
+```
+
+To fix this without changing the runtime implementation, prettierx is vendored at `vendor/prettierx/` with a single patch applied to its `package.json`:
+
+```diff
+- "parse-srcset": "ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee",
++ "parse-srcset": "^1.0.2",
+```
+
+The vendored copy is declared via `file:vendor/prettierx` and included in `bundledDependencies` so pnpm embeds the fully-resolved package inside the published tarball — meaning downstream consumers never trigger exotic dependency resolution.
+
 ## Note on Fork
 
 This is a fork of [sheerun/prettier-standard](https://github.com/sheerun/prettier-standard).
